@@ -4,7 +4,7 @@ import React from 'react';
 function ImagePopup(props) {
 
   return (
-    <div className={`popup  popup_zoom-image ${props.isOpen ? 'popup_opened' : ''}`} onMouseDown={props.onClose}>
+    <div className={`popup  popup_opacity popup_zoom-image ${props.selectedCard.name ? 'popup_opened' : ''}`} onMouseDown={props.onClose}>
       <div className="popup__zoom-image-container">
         <figure className="popup__figure">
           <img className="popup__zoom-image" src={props.selectedCard.link} alt={props.selectedCard.name} />

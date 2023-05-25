@@ -13,8 +13,7 @@ function Main(props) {
             <div className="profile__info">
               <div className="profile__container">
                 <h1 className="profile__name" id="userName">{props.userName}</h1>
-                <button type="button" className="profile__edit-button" onClick={props.onEditProfile}>
-                </button>
+                <button type="button" className="profile__edit-button" onClick={props.onEditProfile} />
               </div>
               <p className="profile__about" id="userAbout">{props.userDescription}</p>
             </div>

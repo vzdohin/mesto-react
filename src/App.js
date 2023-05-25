@@ -17,7 +17,7 @@ function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false)
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false)
   const [isConfirmDeletePopupOpen, setIsConfirmDeletePopupOpen] = useState(false)
-  const [selectedCard, setSelectedCard] = useState(false)
+  const [selectedCard, setSelectedCard] = useState({name:'', link:''})
   //состояния компонентов карточек
   const [userName, setUserName] = useState('')
   const [userDescription, setUserDescription] = useState('')
@@ -63,7 +63,8 @@ function App() {
       })
   }, [])
   React.useEffect(() => {
-    api.getAllCards(cards).then(data => {
+    api.getAllCards(cards).
+    then(data => {
       setCards(
         data.map((item) => ({
           name: item.name,
@@ -72,6 +73,9 @@ function App() {
           likes: item.likes
         }))
       )
+    })
+    .catch((err) => {
+      alert(`Ошибка: ${err}`)
     })
   }, [])
 

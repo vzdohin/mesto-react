@@ -8,7 +8,7 @@ function Card(props) {
     <section className="cards" aria-label="Карточки с красивыми местами">
       {/* {props.cards.map((card) => ( */}
       <article className="card" key={props.card.id}>
-        <img className="card__image" onClick={handleClick} src={props.card.link} />
+        <img className="card__image" onClick={handleClick} src={props.card.link} alt={`Изображение ${props.card.name}`}/>
         <div className="card__container">
           <h2 className="card__title">{props.card.name}</h2>
           <div className="card__button-like-container">
