@@ -2,6 +2,23 @@ import React from 'react';
 import PopupWithForm from './PopupWithForm ';
 
 function PopupAddCard(props) {
+  const [name, setTitle] = React.useState('')
+  const [link, setLink] = React.useState('')
+  // const currentUser = React.useContext(CurrentUserContext);
+
+  React.useEffect(() => {
+    setTitle('');
+    setLink('');
+  }, []);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.onAddPlace({
+      name, 
+      link
+    });
+  }
+
   return (
     <PopupWithForm
       name='card-add'
@@ -9,6 +26,8 @@ function PopupAddCard(props) {
       titleButton={'Создать'}
       isOpen={props.isOpen}
       onClose={props.onClose}
+      onAddPlace={props.onAddPlace}
+      onSubmit={handleSubmit}
       children={
         <>
           <input
@@ -19,7 +38,9 @@ function PopupAddCard(props) {
             name="cardNameInput"
             required
             minLength="2"
-            maxLength="30" />
+            maxLength="30"
+            value={name}
+            onChange={e => setTitle(e.target.value)} />
           <span className="input-error-style" id="cardNameInput-error"></span>
           <input
             type="url"
@@ -27,7 +48,9 @@ function PopupAddCard(props) {
             className="popup__input popup__input_card_url"
             id="cardUrlInput"
             name="cardUrlInput"
-            required />
+            required 
+            value={link}
+            onChange={e => setLink(e.target.value)}/>
           <span className="input-error-style" id="cardUrlInput-error"></span>
         </>
       }>
