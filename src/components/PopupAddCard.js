@@ -18,7 +18,12 @@ function PopupAddCard(props) {
       link
     });
   }
-
+  function handleSetTitle(e){
+    setTitle(e.target.value)
+  }
+  function handleSetLink(e){
+    setLink(e.target.value)
+  }
   return (
     <PopupWithForm
       name='card-add'
@@ -40,7 +45,7 @@ function PopupAddCard(props) {
             minLength="2"
             maxLength="30"
             value={name}
-            onChange={e => setTitle(e.target.value)} />
+            onChange={handleSetTitle} />
           <span className="input-error-style" id="cardNameInput-error"></span>
           <input
             type="url"
@@ -50,7 +55,7 @@ function PopupAddCard(props) {
             name="cardUrlInput"
             required 
             value={link}
-            onChange={e => setLink(e.target.value)}/>
+            onChange={handleSetLink}/>
           <span className="input-error-style" id="cardUrlInput-error"></span>
         </>
       }>

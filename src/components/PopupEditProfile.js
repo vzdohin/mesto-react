@@ -19,6 +19,12 @@ function PopupEditProfile(props) {
       about: description,
     });
   }
+  function handleSetName(e){
+    setName(e.target.value)
+  }
+  function handleSetDescription(e){
+    setDescription(e.target.value)
+  }
   return (
     <PopupWithForm
       name='card-add'
@@ -37,8 +43,8 @@ function PopupEditProfile(props) {
             required
             minLength="2"
             maxLength="40"
-            value={name}
-            onChange={e => setName(e.target.value)} />
+            value={name || ''}
+            onChange={handleSetName} />
           <span className="input-error-style" id="userNameInput-error"></span>
           <input
             type="text"
@@ -48,8 +54,8 @@ function PopupEditProfile(props) {
             required
             minLength="2"
             maxLength="200"
-            value={description}
-            onChange={e => setDescription(e.target.value)} />
+            value={description || ''}
+            onChange={handleSetDescription} />
           <span className="input-error-style" id="userAboutInput-error"></span>
         </>
       }>
