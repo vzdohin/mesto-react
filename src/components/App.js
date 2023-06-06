@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Main from './components/Main';
-import PopupEditProfile from './components/PopupEditProfile';
-import PopupAddCard from './components/PopupAddCard';
-import PopupEditAvatar from './components/PopupEditAvatar';
-import PopupConfirm from './components/PopupConfirm';
-import api from './utils/Api';
-import ImagePopup from './components/ImagePopup';
-import CurrentUserContext from './contexts/CurrentUserContext';
+import Header from './Header';
+import Footer from './Footer';
+import Main from './Main';
+import PopupEditProfile from './PopupEditProfile';
+import PopupAddCard from './PopupAddCard';
+import PopupEditAvatar from './PopupEditAvatar';
+import PopupConfirm from './PopupConfirm';
+import api from '../utils/Api';
+import ImagePopup from './ImagePopup';
+import CurrentUserContext from '../contexts/CurrentUserContext';
 
 function App() {
   // состояния isOpen попаов
@@ -17,10 +17,6 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isConfirmDeletePopupOpen, setIsConfirmDeletePopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState({ name: '', link: '' });
-  //состояния компонентов карточек
-  // const [userName, setUserName] = useState('')
-  // const [userDescription, setUserDescription] = useState('')
-  // const [userAvatar, setUserAvatar] = useState('')
   // состояние карточек
   const [cards, setCards] = useState([]);
   // текущий пользователь 
@@ -55,9 +51,6 @@ function App() {
     api.getUserInfo()
       .then(data => {
         setCurrentUser(data)
-        // setUserName(data.name)
-        // setUserDescription(data.about)
-        // setUserAvatar(data.avatar)
       })
       .catch((err) => {
         alert(`Ошибка: ${err}`)

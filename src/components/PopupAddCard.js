@@ -9,7 +9,7 @@ function PopupAddCard(props) {
   React.useEffect(() => {
     setTitle('');
     setLink('');
-  }, []);
+  }, [props.isOpen]);
 
   function handleSubmit(e) {
     e.preventDefault();
